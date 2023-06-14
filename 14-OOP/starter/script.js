@@ -1,4 +1,5 @@
 'use strict';
+/*
 
 const Person = function (firstName, birthYear) {
   //Instance properties
@@ -69,3 +70,41 @@ const carrito2 = new Car('Mercedes', 95);
 carrito1.accelerate();
 carrito1.accelerate();
 carrito1.brake();
+*/
+
+// ----------------------------------------------------------------------------
+
+//ES6 CLASSES
+
+// class expression
+
+// const PersonCL= class{}
+
+// class declaration
+class PersonCL {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  // Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+}
+
+const jessica = new PersonCL('Jessica', 1996);
+console.log(jessica);
+console.log(jessica.__proto__ === PersonCL.prototype);
+
+// PersonCL.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
+
+jessica.greet();
+
+//1. Classes are NOT hoisted
+//2. Class are first-class citizes
+//3. Classes are executed in strict-mode
