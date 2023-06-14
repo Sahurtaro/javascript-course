@@ -48,3 +48,24 @@ console.log(tiago.__proto__.__proto__.__proto__); //This is null
 const arr = [4, 8, 3, 6, 4]; // new Array ===[]
 console.log(arr.__proto__);
 console.log(arr.__proto__ === Array.prototype);
+
+const Car = function (brand, speed) {
+  this.brand = brand;
+  this.speed = speed;
+};
+
+Car.prototype.accelerate = function () {
+  this.speed = this.speed + 10;
+  console.log(`This ${this.brand} is going at ${this.speed} km/h`);
+};
+
+Car.prototype.brake = function () {
+  this.speed = this.speed - 5;
+  console.log(`This ${this.brand} is going at ${this.speed} km/h`);
+};
+
+const carrito1 = new Car('BMW', 120);
+const carrito2 = new Car('Mercedes', 95);
+carrito1.accelerate();
+carrito1.accelerate();
+carrito1.brake();
