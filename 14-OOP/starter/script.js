@@ -40,4 +40,11 @@ console.log(Person.prototype.isPrototypeOf(Person));
 //We can set properties on the prototype, not just methods
 
 Person.prototype.species = 'Homo Sapiens';
-console.log(tiago);
+console.log(tiago.__proto__);
+//Object.prototype (top of the prorotype chain)
+console.log(tiago.__proto__.__proto__);
+console.log(tiago.__proto__.__proto__.__proto__); //This is null
+
+const arr = [4, 8, 3, 6, 4]; // new Array ===[]
+console.log(arr.__proto__);
+console.log(arr.__proto__ === Array.prototype);
