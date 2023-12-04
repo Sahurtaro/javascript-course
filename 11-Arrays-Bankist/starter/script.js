@@ -404,3 +404,30 @@ movements.sort((a, b) => {
 
 //Resumido
 movements.sort((a, b) => a - b);
+
+const arre = [1, 2, 3, 4, 5, 6];
+const x = new Array(7); //Crea un arreglo con 7 espacios vacíos
+console.log(x);
+
+x.fill(1, 3, 5); //llena el arreglo con este valor, el primer argumento es el valor, el segundo es la posición donde inicia
+// el tercero es donde termina
+x.fill(1);
+console.log(x);
+
+arre.fill(23, 2, 6);
+console.log(arre);
+
+//Array from
+const y = Array.from({ length: 7 }, () => 1); //Crea un arreglo de tamaño 7 con 7 unos
+console.log(y);
+
+const z = Array.from({ length: 7 }, (cur, i) => i + 1);
+console.log(z);
+
+labelBalance.addEventListener('click', () => {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => el.textContent.replace('€', '')
+  );
+  console.log(movementsUI);
+});
