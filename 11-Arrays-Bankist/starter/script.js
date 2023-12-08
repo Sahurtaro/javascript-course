@@ -489,3 +489,83 @@ const convertTitleCase = function (title) {
 console.log(convertTitleCase('this is a nice title'));
 console.log(convertTitleCase('this is a LONG title but not too long'));
 console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+
+// Coding challenge #4
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+// 1.
+dogs.forEach(dog => {
+  let recommendedFood = dog.weight * 0.75 * 28;
+  dog.recommendedFood = recommendedFood;
+});
+console.log(dogs);
+
+dogs.includes;
+
+// 2.
+const sarahsDog = dogs.filter(dog => dog.owners.includes('Sarah'));
+console.log(sarahsDog);
+const eatingTooMuch = function (dog) {
+  return dog.curFood > dog.recommendedFood * 0.9 &&
+    dog.curFood < dog.recommendedFood * 1.1
+    ? 'Eating too much'
+    : 'Eating too little';
+};
+console.log(eatingTooMuch(sarahsDog));
+
+// 3.
+
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recommendedFood)
+  .flatMap(dog => dog.owners);
+
+const ownersEatTooLittle = dogs
+  .filter(dog => dog.curFood < dog.recommendedFood)
+  .flatMap(dog => dog.owners);
+
+console.log(ownersEatTooMuch);
+console.log(ownersEatTooLittle);
+
+// 4.
+// "Matilda and
+// Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat
+// too little!"
+console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much!`);
+console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little!`);
+
+// 5.
+console.log(
+  dogs.some(dog => dog.recommendedFood === dog.curFood),
+  '5'
+);
+
+// 6.
+console.log(
+  dogs.some(
+    dog =>
+      dog.curFood > dog.recommendedFood * 0.9 &&
+      dog.curFood < dog.recommendedFood * 1.1
+  ),
+  '6'
+);
+
+// 7.
+const dogsOkay = dogs.filter(
+  dog =>
+    dog.curFood > dog.recommendedFood * 0.9 &&
+    dog.curFood < dog.recommendedFood * 1.1
+);
+
+console.log(dogsOkay, '7');
+
+// 8.
+const dogsSorted = dogs
+  .slice()
+  .sort((a, b) => a.recommendedFood - b.recommendedFood);
+console.log(dogsSorted);
